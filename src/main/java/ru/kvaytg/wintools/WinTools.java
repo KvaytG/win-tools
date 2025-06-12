@@ -5,10 +5,12 @@ import me.adasdead.WTools.wCore;
 @SuppressWarnings("unused")
 public class WinTools {
 
-    private WinTools() {}
+    private WinTools() {
+        throw new AssertionError("No instances allowed");
+    }
 
-    public static boolean isWindows() {
-        return wCore.isWindows();
+    public static boolean isWindowsOS() {
+        return wCore.isWindowsOS();
     }
 
 }

@@ -4,7 +4,9 @@ import ru.kvaytg.wintools.Colors;
 
 public class wTerminal {
 	
-    private wTerminal() {}
+    private wTerminal() {
+        throw new AssertionError("No instances allowed");
+    }
     
     public static native void write(String p0);
     

@@ -15,16 +15,18 @@ public class wCore {
 
     private static final Path LIBRARY_PATH;
 
+    private wCore() {
+        throw new AssertionError("No instances allowed");
+    }
+
     static {
         LIBRARY_PATH = getLibraryPath();
         loadLibrary();
     }
 
-    private wCore() {}
-
     public static synchronized void loadLibrary() {
         if (!Files.exists(LIBRARY_PATH)) {
-            if (!isWindows()) {
+            if (!isWindowsOS()) {
                 throw new RuntimeException("WinTools only works on Windows");
             }
             try {
@@ -63,7 +65,7 @@ public class wCore {
         return libraryDir.resolve(libraryName);
     }
 
-    public static boolean isWindows() {
+    public static boolean isWindowsOS() {
         return StringUtils.containsIgnoreCase(System.getProperty("os.name"), "win");
     }
 

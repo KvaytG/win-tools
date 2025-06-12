@@ -4,7 +4,9 @@ import ru.kvaytg.wintools.Position;
 
 public class wMouse {
 	
-    private wMouse() {}
+    private wMouse() {
+        throw new AssertionError("No instances allowed");
+    }
     
     private static native void click(short p0);
     

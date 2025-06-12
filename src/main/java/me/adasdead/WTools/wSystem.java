@@ -2,7 +2,9 @@ package me.adasdead.WTools;
 
 public class wSystem {
 	
-    private wSystem() {}
+    private wSystem() {
+        throw new AssertionError("No instances allowed");
+    }
     
     public static native void reboot();
     

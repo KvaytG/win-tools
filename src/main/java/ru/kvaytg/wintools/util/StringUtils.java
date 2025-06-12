@@ -2,6 +2,10 @@ package ru.kvaytg.wintools.util;
 
 public class StringUtils {
 
+    private StringUtils() {
+        throw new AssertionError("No instances allowed");
+    }
+
     private static boolean regionMatches(CharSequence cs,
                                          int thisStart,
                                          CharSequence substring,

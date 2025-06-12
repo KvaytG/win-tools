@@ -6,7 +6,9 @@ import ru.kvaytg.wintools.annotation.Dangerous;
 @SuppressWarnings("unused")
 public class WinSystem {
 
-	private WinSystem() {}
+	private WinSystem() {
+		throw new AssertionError("No instances allowed");
+	}
 	
 	public static void shutdown() {
 		wSystem.shutdown();

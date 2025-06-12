@@ -6,7 +6,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class DirectoryName {
 
-    private DirectoryName() {}
+    private DirectoryName() {
+        throw new AssertionError("No instances allowed");
+    }
 
     public static String get() {
         return String.format("WinTools_%s", hashString(System.getProperty("user.name")));

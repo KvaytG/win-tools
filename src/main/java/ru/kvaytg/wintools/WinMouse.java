@@ -6,7 +6,9 @@ import me.adasdead.WTools.wMouse.Button;
 @SuppressWarnings("unused")
 public class WinMouse {
 
-	private WinMouse() {}
+	private WinMouse() {
+		throw new AssertionError("No instances allowed");
+	}
 	
 	public static void setCursorPosition(Position position) {
 		wMouse.setPosition(position);
