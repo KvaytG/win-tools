@@ -1,10 +1,8 @@
 package ru.kvaytg.wintools;
 
 import me.adasdead.WTools.wTerminal;
-import ru.kvaytg.wintools.annotation.Description;
 
 @SuppressWarnings("unused")
-@Description(description = "Responsible for managing the console")
 public class WinTerminal {
 
     private WinTerminal() {}

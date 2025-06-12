@@ -1,7 +1,6 @@
 package me.adasdead.WTools;
 
 import ru.kvaytg.wintools.util.DirectoryName;
-import ru.kvaytg.wintools.annotation.Description;
 import ru.kvaytg.wintools.util.StringUtils;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +11,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 
-@Description(description = "Updated by KvaytG")
 public class wCore {
 
     private static final Path LIBRARY_PATH;

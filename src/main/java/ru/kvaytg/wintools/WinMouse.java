@@ -2,10 +2,8 @@ package ru.kvaytg.wintools;
 
 import me.adasdead.WTools.wMouse;
 import me.adasdead.WTools.wMouse.Button;
-import ru.kvaytg.wintools.annotation.Description;
 
 @SuppressWarnings("unused")
-@Description(description = "Responsible for controlling the mouse")
 public class WinMouse {
 
 	private WinMouse() {}
