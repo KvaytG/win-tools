@@ -7,7 +7,20 @@ public class WinTerminal {
 
     private WinTerminal() {}
 
+    public static void setColor(Colors color) {
+        wTerminal.setOutColor(color);
+    }
+
+    public static void resetColors() {
+        wTerminal.resetColor();
+    }
+
     public static void write(String str) {
+        wTerminal.write(str);
+    }
+
+    public static void write(String str, Colors color) {
+        setColor(color);
         wTerminal.write(str);
     }
 
@@ -15,12 +28,9 @@ public class WinTerminal {
         wTerminal.writeLine(str);
     }
 
-    public static void setColor(Colors color) {
-        wTerminal.setOutColor(color);
-    }
-
-    public static void resetColors() {
-        wTerminal.resetColor();
+    public static void writeLine(String str, Colors color) {
+        setColor(color);
+        wTerminal.writeLine(str);
     }
 
 }
