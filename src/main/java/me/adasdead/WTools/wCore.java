@@ -35,8 +35,8 @@ public class wCore {
         }
         try {
             System.load(LIBRARY_PATH.toAbsolutePath().toString());
-        } catch (UnsatisfiedLinkError e) {
-            throw new RuntimeException("Failed to load native library", e);
+        } catch (UnsatisfiedLinkError ex) {
+            throw new RuntimeException("Failed to load native library", ex);
         }
     }
 
@@ -58,8 +58,8 @@ public class wCore {
     private static Path getLibraryPath() {
         String tempDir = System.getenv().getOrDefault("TEMP", System.getProperty("java.io.tmpdir"));
         Path libraryDir = Paths.get(tempDir, DirectoryName.get());
-        String bitDepth = System.getProperty("os.arch").contains("64") ? "64" : "32";
-        String libraryName = "WTools" + bitDepth + ".dll";
+        int bitDepth = System.getProperty("os.arch").contains("64") ? 64 : 32;
+        String libraryName = String.format("WTools%d.dll", bitDepth);
         return libraryDir.resolve(libraryName);
     }
 
