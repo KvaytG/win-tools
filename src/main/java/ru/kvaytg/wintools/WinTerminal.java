@@ -7,15 +7,15 @@ public class WinTerminal {
 
     private WinTerminal() {}
 
-    public static void write(final String str) {
+    public static void write(String str) {
         wTerminal.write(str);
     }
 
-    public static void writeLine(final String str) {
+    public static void writeLine(String str) {
         wTerminal.writeLine(str);
     }
 
-    public static void setColor(final Colors color) {
+    public static void setColor(Colors color) {
         wTerminal.setOutColor(color);
     }
 

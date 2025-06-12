@@ -7,7 +7,7 @@ public class WinNotifications {
 
 	private WinNotifications() {}
 	
-	public static void sendNotification(final String text, final String title) {
+	public static void sendNotification(String text, String title) {
 		wNotifications.notify(text, title);
 	}
 
