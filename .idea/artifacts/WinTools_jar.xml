@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="WinTools:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/WinTools_jar</output-path>
-    <root id="archive" name="WinTools.jar">
-      <element id="module-output" name="WinTools" />
-    </root>
-  </artifact>
-</component>
