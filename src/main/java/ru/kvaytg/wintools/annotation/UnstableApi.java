@@ -1,7 +1,0 @@
-package ru.kvaytg.wintools.annotation;
-
-import java.lang.annotation.*;
-
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface UnstableApi {}

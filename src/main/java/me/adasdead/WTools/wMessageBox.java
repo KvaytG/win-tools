@@ -1,9 +1,9 @@
 package me.adasdead.WTools;
 
-import ru.kvaytg.wintools.annotation.UnstableApi;
+import ru.kvaytg.wintools.annotation.Unstable;
 
 @SuppressWarnings("unused")
-@UnstableApi
+@Unstable("Not tested for functionality.")
 public class wMessageBox {
 	
     private static final String BUTTON1_NAME = "OK";
