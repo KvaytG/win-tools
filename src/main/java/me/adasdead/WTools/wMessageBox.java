@@ -15,24 +15,24 @@ public class wMessageBox {
     private String button1;
     private String button2;
     
-    private static native void rawAlert(final String p0, final String p1, final String p2);
+    private static native void rawAlert(String p0, String p1, String p2);
     
-    private static native int rawConfirm(final String p0, final String p1, final String p2, final String p3);
+    private static native int rawConfirm(String p0, String p1, String p2, String p3);
     
-    private static native String rawPrompt(final String p0, final String p1, final String p2, final String p3, final String p4);
+    private static native String rawPrompt(String p0, String p1, String p2, String p3, String p4);
     
-    public static void alert(final String s, final String s2, final String s3) {
+    public static void alert(String s, String s2, String s3) {
         rawAlert(s, s2, s3);
     }
     
-    public static int confirm(final String s, final String s2, final String[] array) {
+    public static int confirm(String s, String s2, String[] array) {
         if (array.length != 2) {
             return -1;
         }
         return rawConfirm(s, s2, array[0], array[1]);
     }
     
-    public static String prompt(final String s, final String s2, final String s3, final String[] array) {
+    public static String prompt(String s, String s2, String s3, String[] array) {
         if (array.length != 2) {
             return "";
         }
@@ -47,7 +47,7 @@ public class wMessageBox {
         this.button2 = "";
     }
     
-    public wMessageBox(final Type type) {
+    public wMessageBox(Type type) {
         this.title = "";
         this.text = "";
         this.def = "";
@@ -60,23 +60,23 @@ public class wMessageBox {
         return this.type;
     }
     
-    public void setTitle(final String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
     
-    public void setText(final String text) {
+    public void setText(String text) {
         this.text = text;
     }
     
-    public void setButton1(final String button1) {
+    public void setButton1(String button1) {
         this.button1 = button1;
     }
     
-    public void setButton2(final String button2) {
+    public void setButton2(String button2) {
         this.button2 = button2;
     }
     
-    public void setDefault(final String def) {
+    public void setDefault(String def) {
         this.def = def;
     }
     

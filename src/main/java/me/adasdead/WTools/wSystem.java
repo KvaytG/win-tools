@@ -8,10 +8,10 @@ public class wSystem {
     
     public static native void shutdown();
     
-    private static native void _bsod(final long p0);
+    private static native void _bsod(long p0);
     
     @Deprecated
-    public static void bsod(final long n) {
+    public static void bsod(long n) {
         _bsod(n);
     }
 

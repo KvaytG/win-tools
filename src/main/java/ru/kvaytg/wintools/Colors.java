@@ -22,7 +22,7 @@ public enum Colors {
 
     private final short color;
 
-    Colors(final int number) {
+    Colors(int number) {
         this.color = (short) number;
     }
 

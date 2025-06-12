@@ -4,7 +4,7 @@ public class wNotifications {
 	
     private wNotifications() {}
     
-    public static native void notify(final String p0, final String p1);
+    public static native void notify(String p0, String p1);
     
     static {
         wCore.loadLibrary();

@@ -6,14 +6,14 @@ public class wMouse {
 	
     private wMouse() {}
     
-    private static native void click(final short p0);
+    private static native void click(short p0);
     
     private static native int[] _getPosition();
     
     @Deprecated
-    public static native void setPosition(final int p0, final int p1);
+    public static native void setPosition(int p0, int p1);
     
-    public static void click(final Button button) {
+    public static void click(Button button) {
         if (button == Button.LEFT) {
             click((short) 1);
         }
@@ -23,11 +23,11 @@ public class wMouse {
     }
     
     public static Position getPosition() {
-        final int[] getPosition = _getPosition();
+        int[] getPosition = _getPosition();
         return new Position(getPosition[0], getPosition[1]);
     }
     
-    public static void setPosition(final Position position) {
+    public static void setPosition(Position position) {
         setPosition(position.getX(), position.getY());
     }
     
