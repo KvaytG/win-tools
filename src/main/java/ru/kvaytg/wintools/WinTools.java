@@ -3,7 +3,9 @@ package ru.kvaytg.wintools;
 import me.adasdead.WTools.wCore;
 
 @SuppressWarnings("unused")
-public class WinTools {
+public final class WinTools {
+
+    public static final String NAME = "WinTools";
 
     private WinTools() {
         throw new AssertionError("No instances allowed");

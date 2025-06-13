@@ -4,7 +4,7 @@ import me.adasdead.WTools.wSystem;
 import ru.kvaytg.wintools.annotation.Dangerous;
 
 @SuppressWarnings("unused")
-public class WinSystem {
+public final class WinSystem {
 
 	private WinSystem() {
 		throw new AssertionError("No instances allowed");
@@ -20,7 +20,7 @@ public class WinSystem {
 
 	@Dangerous("Causes BSOD. May harm the system.")
 	public static void bsod() {
-		wSystem.bsod();
+		wSystem._bsod(-1073741790L);
 	}
 	
 }

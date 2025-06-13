@@ -1,6 +1,9 @@
 package me.adasdead.WTools;
 
-public class wNotifications {
+import ru.kvaytg.wintools.annotation.Unstable;
+
+@Unstable
+public final class wNotifications {
 	
     private wNotifications() {
         throw new AssertionError("No instances allowed");

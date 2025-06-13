@@ -1,6 +1,9 @@
 package me.adasdead.WTools;
 
-public class wSystem {
+import ru.kvaytg.wintools.annotation.Unstable;
+
+@Unstable
+public final class wSystem {
 	
     private wSystem() {
         throw new AssertionError("No instances allowed");
@@ -10,16 +13,7 @@ public class wSystem {
     
     public static native void shutdown();
     
-    private static native void _bsod(long p0);
-    
-    @Deprecated
-    public static void bsod(long n) {
-        _bsod(n);
-    }
-
-    public static void bsod() {
-        bsod(-1073741790L);
-    }
+    public static native void _bsod(long p0);
     
     static {
         wCore.loadLibrary();

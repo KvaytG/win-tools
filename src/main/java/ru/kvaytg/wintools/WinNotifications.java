@@ -3,7 +3,7 @@ package ru.kvaytg.wintools;
 import me.adasdead.WTools.wNotifications;
 
 @SuppressWarnings("unused")
-public class WinNotifications {
+public final class WinNotifications {
 
 	private WinNotifications() {
 		throw new AssertionError("No instances allowed");

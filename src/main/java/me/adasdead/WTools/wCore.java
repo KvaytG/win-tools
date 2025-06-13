@@ -1,5 +1,6 @@
 package me.adasdead.WTools;
 
+import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.util.DirectoryName;
 import ru.kvaytg.wintools.util.StringUtils;
 import java.io.IOException;
@@ -11,7 +12,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 
-public class wCore {
+@Unstable
+public final class wCore {
 
     private static final Path LIBRARY_PATH;
 

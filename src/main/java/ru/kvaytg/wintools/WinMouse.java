@@ -1,29 +1,37 @@
 package ru.kvaytg.wintools;
 
 import me.adasdead.WTools.wMouse;
-import me.adasdead.WTools.wMouse.Button;
 
 @SuppressWarnings("unused")
-public class WinMouse {
+public final class WinMouse {
 
 	private WinMouse() {
 		throw new AssertionError("No instances allowed");
 	}
-	
-	public static void setCursorPosition(Position position) {
-		wMouse.setPosition(position);
+
+	public static void leftClick() {
+		wMouse.click((short) 1);
+	}
+
+	public static void rightClick() {
+		wMouse.click((short) 0);
 	}
 
 	public static Position getCursorPosition() {
-		return wMouse.getPosition();
+		int[] getPosition = wMouse._getPosition();
+		return new Position(getPosition[0], getPosition[1]);
 	}
-	
-	public static void leftClick() {
-		wMouse.click(Button.LEFT);
+
+	public static void setCursorPosition(Position position) {
+		wMouse.setPosition(position.getX(), position.getY());
 	}
-	
-	public static void rightClick() {
-		wMouse.click(Button.RIGHT);
+
+	public static Position getPosition() {
+		return getCursorPosition();
+	}
+
+	public static void setPosition(Position position) {
+		setCursorPosition(position);
 	}
 	
 }

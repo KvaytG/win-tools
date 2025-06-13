@@ -1,8 +1,9 @@
 package me.adasdead.WTools;
 
-import ru.kvaytg.wintools.Colors;
+import ru.kvaytg.wintools.annotation.Unstable;
 
-public class wTerminal {
+@Unstable
+public final class wTerminal {
 	
     private wTerminal() {
         throw new AssertionError("No instances allowed");
@@ -12,14 +13,9 @@ public class wTerminal {
     
     public static native void writeLine(String p0);
 
-    @Deprecated
     public static native void setOutColor(short p0);
     
     public static native void resetColor();
-
-    public static void setOutColor(Colors color) {
-        setOutColor(color.getColor());
-    }
     
     static {
         wCore.loadLibrary();

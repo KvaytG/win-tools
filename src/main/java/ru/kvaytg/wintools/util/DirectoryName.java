@@ -1,17 +1,25 @@
 package ru.kvaytg.wintools.util;
 
+import ru.kvaytg.wintools.WinTools;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class DirectoryName {
+public final class DirectoryName {
+
+    private static final String NAME;
+
+    static {
+        String username = System.getProperty("user.name");
+        NAME = WinTools.NAME + "_" + hashString(username);
+    }
 
     private DirectoryName() {
         throw new AssertionError("No instances allowed");
     }
 
     public static String get() {
-        return String.format("WinTools_%s", hashString(System.getProperty("user.name")));
+        return NAME;
     }
 
     private static String hashString(String input) {

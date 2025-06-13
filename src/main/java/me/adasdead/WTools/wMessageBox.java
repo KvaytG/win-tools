@@ -4,7 +4,7 @@ import ru.kvaytg.wintools.annotation.Unstable;
 
 @SuppressWarnings("unused")
 @Unstable("Not tested for functionality.")
-public class wMessageBox {
+public final class wMessageBox {
 	
     private static final String BUTTON1_NAME = "OK";
     private static final String BUTTON2_NAME = "Cancel";
