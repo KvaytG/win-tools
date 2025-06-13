@@ -1,5 +1,6 @@
 package me.adasdead.WTools;
 
+import ru.kvaytg.wintools.WinTools;
 import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.util.DirectoryName;
 import ru.kvaytg.wintools.util.StringUtils;
@@ -26,10 +27,10 @@ public final class wCore {
         loadLibrary();
     }
 
-    public static synchronized void loadLibrary() {
+    static synchronized void loadLibrary() {
         if (!Files.exists(LIBRARY_PATH)) {
             if (!isWindowsOS()) {
-                throw new RuntimeException("WinTools only works on Windows");
+                throw new RuntimeException(WinTools.NAME + " only works on Windows");
             }
             try {
                 copyLibraryFromResources();
