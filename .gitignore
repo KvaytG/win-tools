@@ -1,11 +1,12 @@
-target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-out/
 .idea/
+out/
+src/test/
+target/
 *.iws
 *.iml
 *.ipr

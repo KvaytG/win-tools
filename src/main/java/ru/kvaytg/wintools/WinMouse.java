@@ -1,6 +1,7 @@
 package ru.kvaytg.wintools;
 
 import me.adasdead.WTools.wMouse;
+import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
 public final class WinMouse {
@@ -22,7 +23,7 @@ public final class WinMouse {
 		return new Position(getPosition[0], getPosition[1]);
 	}
 
-	public static void setCursorPosition(Position position) {
+	public static void setCursorPosition(@NotNull Position position) {
 		wMouse.setPosition(position.getX(), position.getY());
 	}
 
@@ -30,7 +31,7 @@ public final class WinMouse {
 		return getCursorPosition();
 	}
 
-	public static void setPosition(Position position) {
+	public static void setPosition(@NotNull Position position) {
 		setCursorPosition(position);
 	}
 	

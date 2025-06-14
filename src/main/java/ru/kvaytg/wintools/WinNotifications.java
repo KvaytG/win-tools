@@ -1,6 +1,7 @@
 package ru.kvaytg.wintools;
 
 import me.adasdead.WTools.wNotifications;
+import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
 public final class WinNotifications {
@@ -9,7 +10,7 @@ public final class WinNotifications {
 		throw new AssertionError("No instances allowed");
 	}
 	
-	public static void send(String text, String title) {
+	public static void send(@NotNull String text, @NotNull String title) {
 		wNotifications.notify(text, title);
 	}
 
