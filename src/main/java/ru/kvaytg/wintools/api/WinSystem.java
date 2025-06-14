@@ -1,4 +1,4 @@
-package ru.kvaytg.wintools;
+package ru.kvaytg.wintools.api;
 
 import me.adasdead.WTools.wSystem;
 import ru.kvaytg.wintools.annotation.Dangerous;

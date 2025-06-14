@@ -1,10 +1,17 @@
 package ru.kvaytg.wintools.util;
 
-import ru.kvaytg.wintools.WinTools;
+import ru.kvaytg.wintools.annotation.Internal;
+import ru.kvaytg.wintools.api.WinTools;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Utility methods intended for internal use only.
+ *
+ * @apiNote This class is not part of the public API. Use at your own risk.
+ */
+@Internal
 public final class DirectoryName {
 
     private static final String NAME;

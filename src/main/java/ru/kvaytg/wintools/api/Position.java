@@ -1,4 +1,4 @@
-package ru.kvaytg.wintools;
+package ru.kvaytg.wintools.api;
 
 public class Position {
 

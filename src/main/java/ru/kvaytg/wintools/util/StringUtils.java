@@ -1,5 +1,13 @@
 package ru.kvaytg.wintools.util;
 
+import ru.kvaytg.wintools.annotation.Internal;
+
+/**
+ * Utility methods intended for internal use only.
+ *
+ * @apiNote This class is not part of the public API. Use at your own risk.
+ */
+@Internal
 public final class StringUtils {
 
     private StringUtils() {

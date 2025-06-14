@@ -1,6 +1,6 @@
 package me.adasdead.WTools;
 
-import ru.kvaytg.wintools.WinTools;
+import ru.kvaytg.wintools.api.WinTools;
 import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.util.DirectoryName;
 import ru.kvaytg.wintools.util.StringUtils;
