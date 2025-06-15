@@ -1,9 +1,9 @@
 package me.adasdead.WTools;
 
-import ru.kvaytg.wintools.api.WinTools;
 import ru.kvaytg.wintools.annotation.Unstable;
+import ru.kvaytg.wintools.api.WinTools;
 import ru.kvaytg.wintools.util.DirectoryName;
-import ru.kvaytg.wintools.util.StringUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -69,7 +69,9 @@ public final class wCore {
     }
 
     public static boolean isWindowsOS() {
-        return StringUtils.containsIgnoreCase(System.getProperty("os.name"), "win");
+        final String osName = System.getProperty("os.name");
+        if (osName == null) return false;
+        return osName.toLowerCase().startsWith("windows");
     }
 
 }

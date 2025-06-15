@@ -1,15 +1,17 @@
 package ru.kvaytg.wintools.util;
 
-import ru.kvaytg.wintools.annotation.Internal;
 import ru.kvaytg.wintools.api.WinTools;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import org.jetbrains.annotations.ApiStatus.Internal;
 
 /**
- * Utility methods intended for internal use only.
+ * INTERNAL! Do not use directly.
+ * Generates hashed directory names for WinTools internal needs.
  *
- * @apiNote This class is not part of the public API. Use at your own risk.
+ * @apiNote This class is not part of the public API.
+ * @implNote Implementation may change or be removed without notice.
  */
 @Internal
 public final class DirectoryName {
