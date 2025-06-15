@@ -8,7 +8,7 @@ import org.jetbrains.annotations.ApiStatus.Internal;
 
 /**
  * INTERNAL! Do not use directly.
- * Generates hashed directory names for WinTools internal needs.
+ * Generates hashed directory name for WinTools internal needs.
  *
  * @apiNote This class is not part of the public API.
  * @implNote Implementation may change or be removed without notice.
@@ -19,7 +19,7 @@ public final class DirectoryName {
     private static final String NAME;
 
     static {
-        String username = System.getProperty("user.name");
+        String username = System.getProperty("user.name", "unknown");
         NAME = WinTools.NAME + "_" + hashString(username);
     }
 

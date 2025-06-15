@@ -1,6 +1,6 @@
 package ru.kvaytg.wintools.api;
 
-import me.adasdead.WTools.wCore;
+import ru.kvaytg.wintools.util.WindowsUtils;
 
 @SuppressWarnings("unused")
 public final class WinTools {
@@ -12,7 +12,7 @@ public final class WinTools {
     }
 
     public static boolean isWindowsOS() {
-        return wCore.isWindowsOS();
+        return WindowsUtils.isWindowsOS();
     }
 
 }

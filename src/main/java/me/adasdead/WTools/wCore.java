@@ -3,6 +3,7 @@ package me.adasdead.WTools;
 import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.api.WinTools;
 import ru.kvaytg.wintools.util.DirectoryName;
+import ru.kvaytg.wintools.util.WindowsUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +30,7 @@ public final class wCore {
 
     static synchronized void loadLibrary() {
         if (!Files.exists(LIBRARY_PATH)) {
-            if (!isWindowsOS()) {
+            if (!WindowsUtils.isWindowsOS()) {
                 throw new RuntimeException(WinTools.NAME + " only works on Windows");
             }
             try {
@@ -66,12 +67,6 @@ public final class wCore {
         int bitDepth = System.getProperty("os.arch").contains("64") ? 64 : 32;
         String libraryName = String.format("WTools%d.dll", bitDepth);
         return libraryDir.resolve(libraryName);
-    }
-
-    public static boolean isWindowsOS() {
-        final String osName = System.getProperty("os.name");
-        if (osName == null) return false;
-        return osName.toLowerCase().startsWith("windows");
     }
 
 }
