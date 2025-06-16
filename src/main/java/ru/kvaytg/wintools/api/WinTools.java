@@ -12,7 +12,7 @@ public final class WinTools {
     }
 
     public static boolean isWindowsOS() {
-        return WindowsUtils.isWindowsOS();
+        return WindowsUtils.isWindows();
     }
 
 }

@@ -17,21 +17,19 @@ public final class WindowsUtils {
         throw new AssertionError("No instances allowed");
     }
 
-    public static boolean isWindowsOS() {
-        return Holder.IS_WINDOWS;
-    }
-
-    private static class Holder {
+    private static final class Holder {
 
         static final boolean IS_WINDOWS = detectWindows();
 
         private static boolean detectWindows() {
-            String osName = System.getProperty("os.name");
-            if (osName == null) return false;
-            final String normalized = osName.toLowerCase(Locale.ENGLISH);
-            return normalized.startsWith("windows");
+            String osName = System.getProperty("os.name", "");
+            return osName.toLowerCase(Locale.ENGLISH).startsWith("windows");
         }
 
+    }
+
+    public static boolean isWindows() {
+        return Holder.IS_WINDOWS;
     }
 
 }

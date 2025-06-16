@@ -18,13 +18,13 @@ public final class DirectoryName {
 
     private static final String NAME;
 
+    private DirectoryName() {
+        throw new AssertionError("No instances allowed");
+    }
+
     static {
         String username = System.getProperty("user.name", "unknown");
         NAME = WinTools.NAME + "_" + hashString(username);
-    }
-
-    private DirectoryName() {
-        throw new AssertionError("No instances allowed");
     }
 
     public static String get() {
@@ -45,7 +45,7 @@ public final class DirectoryName {
             }
             return hexString.toString();
         } catch (NoSuchAlgorithmException ex) {
-            throw new RuntimeException("SHA-256 algorithm is unavailable", ex);
+            throw new IllegalStateException("SHA-256 algorithm is unavailable", ex);
         }
     }
 

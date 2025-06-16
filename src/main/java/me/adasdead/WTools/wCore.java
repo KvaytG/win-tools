@@ -4,7 +4,6 @@ import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.api.WinTools;
 import ru.kvaytg.wintools.util.DirectoryName;
 import ru.kvaytg.wintools.util.WindowsUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -30,7 +29,7 @@ public final class wCore {
 
     static synchronized void loadLibrary() {
         if (!Files.exists(LIBRARY_PATH)) {
-            if (!WindowsUtils.isWindowsOS()) {
+            if (!WindowsUtils.isWindows()) {
                 throw new RuntimeException(WinTools.NAME + " only works on Windows");
             }
             try {
