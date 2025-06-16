@@ -1,5 +1,7 @@
-# WinTools ![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey)
-**A collection of Java utilities for interacting with Windows through native DLLs**
+# WinTools
+![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey)
+
+**A collection of Java utilities for interacting with Windows via native DLLs**
 ## 📦 Features
 - **Native interactions**: Direct access to Windows API via Java wrappers
 - **Input control**: Precise mouse manipulation (clicks, cursor positioning)
@@ -64,7 +66,7 @@ if (WinTools.isWindows()) {
     // Windows-specific logic
 }
 ```
-## ⚠️ Important Note
+## ❗ Important Note
 **Functionality has only been tested on Windows 10 and Windows 11.**
 ## 🙏 Acknowledgments
 Special thanks to **adasdead** for developing the native DLL components that made this project possible.
