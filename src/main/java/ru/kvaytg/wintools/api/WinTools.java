@@ -11,7 +11,7 @@ public final class WinTools {
         throw new AssertionError("No instances allowed");
     }
 
-    public static boolean isWindowsOS() {
+    public static boolean isWindows() {
         return WindowsUtils.isWindows();
     }
 

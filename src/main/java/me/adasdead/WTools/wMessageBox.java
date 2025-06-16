@@ -8,6 +8,7 @@ public final class wMessageBox {
 	
     private static final String BUTTON1_NAME = "OK";
     private static final String BUTTON2_NAME = "Cancel";
+
     private Type type;
     private String title;
     private String text;

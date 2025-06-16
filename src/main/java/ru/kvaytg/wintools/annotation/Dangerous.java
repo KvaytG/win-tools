@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Dangerous {
-    String value() default "This method performs a dangerous or irreversible action.";
+    String value() default "This element performs a dangerous or irreversible action.";
 }
