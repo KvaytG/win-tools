@@ -7,7 +7,7 @@
 - **Input control**: Precise mouse manipulation (clicks, cursor positioning)
 - **System notifications**: Windows toast notifications delivery
 - **Console operations**: Color-formatted output without ANSI codes
-- **System operations**: Graceful shutdown/reboot + low-level functions
+- **System operations**: Shutdown/reboot + low-level functions
 - **Static API**: Utility classes with instantiation prevention
 - **Compatibility**: Legacy system support (Java 8)
 - **Native integration**: Optimized pre-built DLL components
@@ -33,13 +33,13 @@ WinNotifications.send("Message text", "Title");
 ```
 ### WinSystem Class
 ```java
-// Graceful shutdown
+// System shutdown
 WinSystem.shutdown();
 
 // System reboot
 WinSystem.reboot();
 
-// Triggers Blue Screen of Death
+// Trigger Blue Screen of Death
 // Dangerous operation, use with caution!
 // Requires enabling via WinTools.setDangerOpsEnabled(true)
 WinSystem.bsod();
@@ -67,10 +67,10 @@ if (WinTools.isWindows()) {
     // Windows-specific logic
 }
 
-// Check danger operations status
+// Check dangerous operations status
 boolean enabled = WinTools.isDangerOpsEnabled();
 
-// Enable/disable danger operations
+// Enable/disable dangerous operations
 WinTools.setDangerOpsEnabled(false);
 ```
 ## ❗ Important Note
