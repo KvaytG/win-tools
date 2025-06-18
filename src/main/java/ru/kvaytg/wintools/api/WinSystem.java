@@ -18,8 +18,19 @@ public final class WinSystem {
 		wSystem.reboot();
 	}
 
+	/**
+	 * Triggers a Blue Screen of Death (BSOD)
+	 * Dangerous operation!
+	 * @throws SecurityException if dangerous operations are disabled
+	 */
 	@Dangerous("Causes BSOD. May harm the system.")
 	public static void bsod() {
+		if (!WinTools.isDangerOpsEnabled()) {
+			throw new SecurityException(
+					"Enable dangerous operations first: " +
+					WinTools.NAME + ".setDangerOpsEnabled(true)"
+			);
+		}
 		wSystem._bsod(-1073741790L);
 	}
 	

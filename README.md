@@ -39,8 +39,9 @@ WinSystem.shutdown();
 // System reboot
 WinSystem.reboot();
 
-// Trigger Blue Screen of Death
+// Triggers Blue Screen of Death
 // Dangerous operation, use with caution!
+// Requires enabling via WinTools.setDangerOpsEnabled(true)
 WinSystem.bsod();
 ```
 ### WinTerminal Class
@@ -65,9 +66,17 @@ WinTerminal.setColor(Colors.GREEN);
 if (WinTools.isWindows()) {
     // Windows-specific logic
 }
+
+// Check danger operations status
+boolean enabled = WinTools.isDangerOpsEnabled();
+
+// Enable/disable danger operations
+WinTools.setDangerOpsEnabled(false);
 ```
 ## ❗ Important Note
-**Functionality has only been tested on Windows 10 and Windows 11.**
+Functionality has only been tested on Windows 10 and Windows 11.
+
+Dangerous operations are disabled by default and require explicit enabling.
 ## 🙏 Acknowledgments
 Special thanks to **adasdead** for developing the native DLL components that made this project possible.
 ## 📜 License
