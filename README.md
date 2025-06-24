@@ -1,4 +1,4 @@
-# WinTools
+# win-tools
 ![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey)
 
 **A collection of Java utilities for interacting with Windows via native DLLs.**
@@ -12,7 +12,7 @@
 - **Static API**: Utility classes with instantiation prevention
 - **Native integration**: Optimized pre-built DLL components
 
-## 📚 API Documentation
+## 📚 Usage
 ### WinMouse Class
 ```java
 // Left click
@@ -83,15 +83,13 @@ WinTools.setDangerOpsEnabled(false);
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
 
-## ❗ Important Notes
-Performance has been tested only on Windows 10 and Windows 11.
-
-Administrator privileges are NOT required.
-
-Dangerous operations are disabled by default and require explicit activation.
+## ⚠️ Important Notes
+- Performance has been tested only on Windows 10 and Windows 11.
+- Administrator privileges are NOT required.
+- Dangerous operations are disabled by default and require explicit activation.
 
 ## 🙏 Acknowledgments
 Special thanks to **adasdead** for developing the native DLL components that made this project possible.
 
 ## 📜 License
-WinTools is licensed under the **[MIT license](https://opensource.org/license/mit)**.
+win-tools is licensed under the **[MIT license](https://opensource.org/license/mit)**.
