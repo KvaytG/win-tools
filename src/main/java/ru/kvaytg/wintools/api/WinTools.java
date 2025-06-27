@@ -1,6 +1,6 @@
 package ru.kvaytg.wintools.api;
 
-import ru.kvaytg.wintools.util.WindowsUtils;
+import ru.kvaytg.wintools.util.JvmUtils;
 
 @SuppressWarnings("unused")
 public final class WinTools {
@@ -22,7 +22,7 @@ public final class WinTools {
     }
 
     public static boolean isWindows() {
-        return WindowsUtils.isWindows();
+        return JvmUtils.isWindows();
     }
 
 }

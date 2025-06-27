@@ -2,7 +2,7 @@
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 .idea/
 out/
 src/test/
@@ -11,7 +11,10 @@ target/
 *.iml
 *.ipr
 
-### Eclipse ###
+# META-INF
+src/main/resources/META-INF
+
+# Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -20,7 +23,7 @@ target/
 .springBeans
 .sts4-cache
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -30,8 +33,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Mac OS ###
+# Mac OS
 .DS_Store

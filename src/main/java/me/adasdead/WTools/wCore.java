@@ -2,8 +2,8 @@ package me.adasdead.WTools;
 
 import ru.kvaytg.wintools.annotation.Unstable;
 import ru.kvaytg.wintools.api.WinTools;
-import ru.kvaytg.wintools.util.DirectoryName;
-import ru.kvaytg.wintools.util.WindowsUtils;
+import ru.kvaytg.wintools.util.HashUtils;
+import ru.kvaytg.wintools.util.JvmUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -18,18 +18,27 @@ public final class wCore {
 
     private static final Path LIBRARY_PATH;
 
+    private static final String LIBRARY_HASH;
+
     private wCore() {
         throw new AssertionError("No instances allowed");
     }
 
     static {
-        LIBRARY_PATH = getLibraryPath();
-        loadLibrary();
+        boolean is64Bit = JvmUtils.is64Bit();
+        String tempDir = System.getenv().getOrDefault("TEMP", System.getProperty("java.io.tmpdir"));
+        String libDir = WinTools.NAME + "_" + HashUtils.sha256(
+                System.getProperty("user.name", "unknown")
+        );
+        LIBRARY_PATH = Paths.get(tempDir, libDir).resolve("WTools" + (is64Bit ? "64" : "32") + ".dll");
+        LIBRARY_HASH = is64Bit
+                ? "66aba098b3b2e8b0113cc57d6bda71c1a3420f247ff3450348827cf6c5274ee8"
+                : "dd0055ec88dcea7d94a038dde07fca8131abc6e65227fd1f0b69702782e65e96";
     }
 
     static synchronized void loadLibrary() {
         if (!Files.exists(LIBRARY_PATH)) {
-            if (!WindowsUtils.isWindows()) {
+            if (!JvmUtils.isWindows()) {
                 throw new RuntimeException(WinTools.NAME + " only works on Windows");
             }
             try {
@@ -37,6 +46,17 @@ public final class wCore {
             } catch (IOException ex) {
                 throw new RuntimeException("Failed to copy native library", ex);
             }
+        }
+        try {
+            String actualHash;
+            try (InputStream is = Files.newInputStream(LIBRARY_PATH)) {
+                actualHash = HashUtils.sha256(is);
+            }
+            if (!LIBRARY_HASH.equalsIgnoreCase(actualHash)) {
+                throw new SecurityException("SHA-256 mismatch: expected " + LIBRARY_HASH + ", got " + actualHash);
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException("Failed to read native library", ex);
         }
         try {
             System.load(LIBRARY_PATH.toAbsolutePath().toString());
@@ -58,14 +78,6 @@ public final class wCore {
         try (InputStream in = resource.openStream()) {
             Files.copy(in, LIBRARY_PATH, StandardCopyOption.REPLACE_EXISTING);
         }
-    }
-
-    private static Path getLibraryPath() {
-        String tempDir = System.getenv().getOrDefault("TEMP", System.getProperty("java.io.tmpdir"));
-        Path libraryDir = Paths.get(tempDir, DirectoryName.get());
-        int bitDepth = System.getProperty("os.arch").contains("64") ? 64 : 32;
-        String libraryName = String.format("WTools%d.dll", bitDepth);
-        return libraryDir.resolve(libraryName);
     }
 
 }

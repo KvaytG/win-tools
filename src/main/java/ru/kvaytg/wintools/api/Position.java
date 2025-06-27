@@ -18,4 +18,9 @@ public class Position {
         return x;
     }
 
+    @Override
+    public String toString() {
+        return "Position{x=" + x + ", y=" + y + "}";
+    }
+
 }

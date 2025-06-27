@@ -21,8 +21,8 @@ WinMouse.leftClick();
 // Right click
 WinMouse.rightClick();
 
-// Set cursor position
-WinMouse.setCursorPosition(new Position(100, 200));
+// Set cursor position (X, Y)
+WinMouse.setCursorPosition(100, 200);
 
 // Get current position
 Position pos = WinMouse.getCursorPosition();

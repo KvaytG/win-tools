@@ -23,16 +23,12 @@ public final class WinMouse {
 		return new Position(getPosition[0], getPosition[1]);
 	}
 
+	public static void setCursorPosition(int x, int y) {
+		wMouse.setPosition(x, y);
+	}
+
 	public static void setCursorPosition(@NotNull Position position) {
-		wMouse.setPosition(position.getX(), position.getY());
-	}
-
-	public static Position getPosition() {
-		return getCursorPosition();
-	}
-
-	public static void setPosition(@NotNull Position position) {
-		setCursorPosition(position);
+		setCursorPosition(position.getX(), position.getY());
 	}
 	
 }
