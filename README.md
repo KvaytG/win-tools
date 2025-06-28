@@ -1,7 +1,7 @@
 # win-tools
 ![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey)
 
-**A collection of Java utilities for interacting with Windows via native DLLs.**
+A collection of Java utilities for interacting with Windows via native DLLs.
 
 ## ✨ Features
 - **Native interactions**: Direct access to Windows API via Java wrappers
@@ -100,4 +100,4 @@ Special thanks to **adasdead** for developing the native DLL components that mad
 ## 📜 License
 win-tools is licensed under the **[MIT license](https://opensource.org/license/mit)**.
 
-This project uses open-source components. For license details see [pom.xml](pom.xml) and dependencies' official websites.
+This project uses open-source components. For license details see **[pom.xml](pom.xml)** and dependencies' official websites.
