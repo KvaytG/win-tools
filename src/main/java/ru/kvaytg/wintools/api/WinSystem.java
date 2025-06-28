@@ -19,8 +19,10 @@ public final class WinSystem {
 	}
 
 	/**
-	 * Triggers a Blue Screen of Death
-	 * Dangerous operation!
+	 * WARNING: FOR RESEARCH/TESTING ONLY
+	 * Triggers Blue Screen of Death. Never use in production!
+	 * Violates Microsoft EULA.
+	 *
 	 * @throws SecurityException if dangerous operations are disabled
 	 */
 	@Dangerous("Causes BSOD. May harm the system.")

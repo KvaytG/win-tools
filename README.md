@@ -83,13 +83,21 @@ WinTools.setDangerOpsEnabled(false);
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
 
-## ⚠️ Important Notes
+## ❗ Important Notes
 - Performance has been tested only on Windows 10 and Windows 11.
 - Administrator privileges are NOT required.
 - Dangerous operations are disabled by default and require explicit activation.
+
+## ⚠️ Dangerous Operations
+Functions marked with `@Dangerous`, intended only for:
+- Security research
+- System stability testing
+- Educational purposes
 
 ## 🙏 Acknowledgments
 Special thanks to **adasdead** for developing the native DLL components that made this project possible.
 
 ## 📜 License
 win-tools is licensed under the **[MIT license](https://opensource.org/license/mit)**.
+
+This project uses open-source components. For license details see [pom.xml](pom.xml) and dependencies' official websites.
