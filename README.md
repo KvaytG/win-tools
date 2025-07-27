@@ -1,5 +1,5 @@
 # win-tools
-![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey)
+![Java](https://img.shields.io/badge/Java-8-blue?logo=java) ![DLL](https://img.shields.io/badge/Native_DLL-Windows-lightgrey) ![MIT](https://img.shields.io/badge/License-MIT-green)
 
 A collection of Java utilities for interacting with Windows via native DLLs.
 
