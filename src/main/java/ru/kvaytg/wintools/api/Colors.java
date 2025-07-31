@@ -1,5 +1,9 @@
 package ru.kvaytg.wintools.api;
 
+/**
+ * ANSI terminal text color codes.
+ * These colors are used to change text color in supported terminal environments.
+ */
 @SuppressWarnings("unused")
 public enum Colors {
 
@@ -22,10 +26,20 @@ public enum Colors {
 
     private final short color;
 
+    /**
+     * Constructs a color with the given ANSI color code.
+     *
+     * @param number ANSI color code
+     */
     Colors(int number) {
         this.color = (short) number;
     }
 
+    /**
+     * Returns the ANSI color code associated with this color.
+     *
+     * @return the ANSI color code as a {@code short}
+     */
     public short getColor() {
         return color;
     }
