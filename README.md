@@ -84,6 +84,26 @@ WinTools.setDangerOpsEnabled(false);
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
 
+## ⚙️ Installation
+1. Add the JitPack repository to your `pom.xml`
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+2. Add the dependency
+```xml
+<dependency>
+    <groupId>com.github.KvaytG</groupId>
+    <artifactId>win-tools</artifactId>
+    <version>-SNAPSHOT</version>
+</dependency>
+```
+*Optional:* To use a specific version, tag a release and replace `-SNAPSHOT` with the tag name.
+
 ## ❗ Important Notes
 - Performance has been tested only on Windows 10 and Windows 11.
 - Administrator privileges are NOT required.
@@ -99,6 +119,6 @@ Functions marked with `@Dangerous`, intended only for:
 Special thanks to **adasdead** for developing the native DLL components that made this project possible.
 
 ## 📜 License
-win-tools is licensed under the **[MIT license](https://opensource.org/license/mit)**.
+Licensed under the **[MIT](LICENSE.txt)** license.
 
 This project uses open-source components. For license details see **[pom.xml](pom.xml)** and dependencies' official websites.
