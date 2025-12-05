@@ -2,6 +2,9 @@ package ru.kvaytg.wintools.api;
 
 import me.adasdead.WTools.wMessageBox;
 
+/**
+ * Utility class for displaying native Windows message boxes using the WTools library.
+ **/
 @SuppressWarnings("unused")
 public class WinMessageBox {
 
