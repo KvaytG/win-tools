@@ -10,10 +10,32 @@ A collection of Java utilities for interacting with Windows via native DLLs.
 - **System notifications**: Windows toast notifications delivery
 - **Console operations**: Color-formatted output
 - **System operations**: Shutdown/reboot + low-level functions
+- **Message boxes**: Alert, confirm, and prompt dialogs via native Windows dialogs
 - **Static API**: Utility classes with instantiation prevention
 - **Native integration**: Optimized pre-built DLL components
 
 ## 📚 Usage
+### WinMessageBox Class
+```java
+// Simple alert dialog
+WinMessageBox.alert("This is an alert message", "Alert", "OK");
+
+// Confirmation dialog with two buttons
+int result = WinMessageBox.confirm("Do you want to continue?", "Confirm", new String[]{"Yes", "No"});
+if (result == 0) {
+    // First button clicked
+} else {
+    // Second button clicked or dialog closed
+}
+
+// Prompt dialog with input field
+String input = WinMessageBox.prompt("Enter your name:", "Prompt", "Default Name", new String[]{"OK", "Cancel"});
+if (!input.isEmpty()) {
+    // First button clicked with input
+} else {
+    // Second button clicked or dialog closed
+}
+```
 ### WinMouse Class
 ```java
 // Left click
@@ -28,13 +50,11 @@ WinMouse.setCursorPosition(100, 200);
 // Get current position
 Position pos = WinMouse.getCursorPosition();
 ```
-
 ### WinNotifications Class
 ```java
 // Send notification
 WinNotifications.send("Message text", "Title");
 ```
-
 ### WinSystem Class
 ```java
 // System shutdown
@@ -52,7 +72,6 @@ try {
     // Throws if dangerous operations are disabled
 }
 ```
-
 ### WinTerminal Class
 ```java
 // Basic output
@@ -69,7 +88,6 @@ WinTerminal.resetColor();
 // Set persistent color
 WinTerminal.setColor(Colors.GREEN);
 ```
-
 ### WinTools Class
 ```java
 // OS check
@@ -102,7 +120,7 @@ boolean enabled = WinTools.isDangerOpsEnabled();
     <version>-SNAPSHOT</version>
 </dependency>
 ```
-*Optional:* To use a specific version, tag a release and replace `-SNAPSHOT` with the tag name.
+Optional: to use a specific version, tag a release and replace `-SNAPSHOT` with the tag name.
 
 ## ❗ Important Notes
 - Performance has been tested only on Windows 10 and Windows 11.
