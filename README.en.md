@@ -103,7 +103,7 @@ WinTools.setDangerOpsEnabled(false);
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
 
-## ⚙️ Installation (Maven)
+## 📥 Installation (Maven)
 1. Add the JitPack repository to your `pom.xml`
 ```xml
 <repositories>
@@ -124,20 +124,18 @@ boolean enabled = WinTools.isDangerOpsEnabled();
 Optional: to use a specific version, tag a release and replace `-SNAPSHOT` with the tag name.
 
 ## ❗ Important Notes
-- Performance has been tested only on Windows 10 and Windows 11.
-- Administrator privileges are NOT required.
-- Dangerous operations are disabled by default and require explicit activation.
+* Tested only on Windows 10 and Windows 11.
+* Administrator privileges are NOT required.
+* Dangerous operations are disabled by default and require explicit enabling.
+* Functions marked with `@Dangerous` are intended only for:
+    - Security research
+    - System stability testing
+    - Educational purposes
 
-## ⚠️ Dangerous Operations
-Functions marked with `@Dangerous`, intended only for:
-- Security research
-- System stability testing
-- Educational purposes
+## 🙏 Acknowledgements
+Special thanks to [**adasdead**](https://github.com/adasdead) for developing the native DLLs that made this project possible.
 
-## 🙏 Acknowledgments
-Special thanks to **adasdead** for developing the native DLL components that made this project possible.
-
-## 📜 License
+## 📝 License
 Licensed under the **[MIT](LICENSE.txt)** license.
 
 This project uses open-source components. For license details see **[pom.xml](pom.xml)** and dependencies' official websites.
