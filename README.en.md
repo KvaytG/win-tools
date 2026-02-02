@@ -14,6 +14,7 @@ A collection of Java utilities for interacting with Windows via native DLLs.
 - **Message boxes**: Alert, confirm, and prompt dialogs via native Windows dialogs
 - **Static API**: Utility classes with instantiation prevention
 - **Native integration**: Optimized pre-built DLL components
+- **Global Key Listening**: Intercept keyboard events system-wide
 
 ## 📚 Usage
 ### WinMessageBox Class
@@ -101,6 +102,20 @@ WinTools.setDangerOpsEnabled(false);
 
 // Check dangerous operations status
 boolean enabled = WinTools.isDangerOpsEnabled();
+```
+### WinToolsExtra Class
+```java
+// Add a global keyboard listener
+WinToolsExtra.addKeyboardListener(vkCode -> {
+    System.out.println("Key Pressed! VK Code: " + vkCode);
+    // Example: Check for INSERT key (VK 45)
+    if (vkCode == 45) {
+        System.out.println("INSERT pressed");
+    }
+});
+
+// Remove the listener when no longer needed
+// WinToolsExtra.removeKeyboardListener(myListener);
 ```
 
 ## 📥 Installation (Maven)
