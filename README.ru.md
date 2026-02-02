@@ -103,7 +103,7 @@ WinTools.setDangerOpsEnabled(false);
 // Проверка статуса опасных операций
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
-### WinToolsExtra Class
+### Класс WinToolsExtra
 ```java
 // Добавить глобальный слушатель клавиатуры
 WinToolsExtra.addKeyboardListener(vkCode -> {
