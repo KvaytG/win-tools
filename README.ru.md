@@ -103,10 +103,10 @@ WinTools.setDangerOpsEnabled(false);
 // Проверка статуса опасных операций
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
-### Класс WinToolsExtra
+### Класс WinKeyboard
 ```java
 // Добавить глобальный слушатель клавиатуры
-WinToolsExtra.addKeyboardListener(vkCode -> {
+WinKeyboard.addListener(vkCode -> {
     System.out.println("Клавиша нажата! VK код: " + vkCode);
     // Пример: проверка клавиши INSERT (VK 45)
     if (vkCode == 45) {
@@ -115,7 +115,7 @@ WinToolsExtra.addKeyboardListener(vkCode -> {
 });
 
 // Удалите слушатель, когда он больше не нужен
-// WinToolsExtra.removeKeyboardListener(myListener);
+// WinKeyboard.removeListener(myListener);
 ```
 
 ## 📥 Установка (Maven)
@@ -148,7 +148,7 @@ WinToolsExtra.addKeyboardListener(vkCode -> {
     - Образовательных целей
 
 ## 🙏 Благодарности
-Особая благодарность [**adasdead**](https://github.com/adasdead) за разработку нативных DLL, благодаря которым проект стал возможен.
+Особая благодарность [**adasdead**](https://github.com/adasdead) за разработку оригинальной нативной DLL, благодаря которой проект стал возможен.
 
 ## 📝 Лицензия
 Распространяется по лицензии **[MIT](LICENSE.txt)**.

@@ -103,10 +103,10 @@ WinTools.setDangerOpsEnabled(false);
 // Check dangerous operations status
 boolean enabled = WinTools.isDangerOpsEnabled();
 ```
-### WinToolsExtra Class
+### WinKeyboard Class
 ```java
 // Add a global keyboard listener
-WinToolsExtra.addKeyboardListener(vkCode -> {
+WinKeyboard.addListener(vkCode -> {
     System.out.println("Key Pressed! VK Code: " + vkCode);
     // Example: Check for INSERT key (VK 45)
     if (vkCode == 45) {
@@ -115,7 +115,7 @@ WinToolsExtra.addKeyboardListener(vkCode -> {
 });
 
 // Remove the listener when no longer needed
-// WinToolsExtra.removeKeyboardListener(myListener);
+// WinKeyboard.removeListener(myListener);
 ```
 
 ## 📥 Installation (Maven)
@@ -148,7 +148,7 @@ Optional: to use a specific version, tag a release and replace `-SNAPSHOT` with 
     - Educational purposes
 
 ## 🙏 Acknowledgements
-Special thanks to [**adasdead**](https://github.com/adasdead) for developing the native DLLs that made this project possible.
+Special thanks to [**adasdead**](https://github.com/adasdead) for developing the original native DLL, which made the project possible.
 
 ## 📝 License
 Licensed under the **[MIT](LICENSE.txt)** license.
