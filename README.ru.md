@@ -1,7 +1,7 @@
 
 # win-tools
 
-![Java 8](https://img.shields.io/badge/Java-8-orange?logo=java) ![Native DLL](https://img.shields.io/badge/Native%20DLL-Windows-lightgrey?logo=windows) ![MIT License](https://img.shields.io/badge/License-MIT-green) [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-red)](https://kvaytg.ru/donate.php?lang=ru)
+![Java 8](https://img.shields.io/badge/Java-8-orange?logo=java) ![Native DLL](https://img.shields.io/badge/Native%20DLL-Windows-lightgrey?logo=windows) ![MIT License](https://img.shields.io/badge/Лицензия-MIT-green) [![Sponsor](https://img.shields.io/badge/Поддержать-%E2%9D%A4-red)](https://kvaytg.ru/donate.php?lang=ru) [![Telegram](https://img.shields.io/badge/Telegram-Канал-blue?logo=telegram)](https://t.me/kvaytgk)
 
 Коллекция утилит на Java для взаимодействия с Windows через нативные DLL.
 
