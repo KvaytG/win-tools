@@ -3,8 +3,8 @@ package ru.kvaytg.wintools.api;
 import ru.kvaytg.wintools.extra.KeyboardListener;
 import ru.kvaytg.wintools.extra.WinToolsExtra;
 import ru.kvaytg.wintools.util.JvmUtils;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Public API for global keyboard event interception on Windows.
@@ -22,7 +22,7 @@ public final class WinKeyboard {
 
     private static WinToolsExtra.KeyListenerInternalCallback nativeCallback;
 
-    private static final List<KeyboardListener> subscribers = new ArrayList<>();
+    private static final List<KeyboardListener> subscribers = new CopyOnWriteArrayList<>();
     private static boolean isStarted = false;
 
     /**
@@ -44,9 +44,7 @@ public final class WinKeyboard {
         if (!isStarted) {
             startNativeHook();
         }
-        synchronized (subscribers) {
-            subscribers.add(listener);
-        }
+        subscribers.add(listener);
     }
 
     /**
@@ -55,9 +53,7 @@ public final class WinKeyboard {
      * @param listener The listener to be removed.
      */
     public static void removeListener(KeyboardListener listener) {
-        synchronized (subscribers) {
-            subscribers.remove(listener);
-        }
+        subscribers.remove(listener);
     }
 
     /**
@@ -68,10 +64,8 @@ public final class WinKeyboard {
             throw new RuntimeException("WinKeyboard only works on Windows");
         }
         nativeCallback = (vkCode) -> {
-            synchronized (subscribers) {
-                for (KeyboardListener s : subscribers) {
-                    s.onKeyPress(vkCode);
-                }
+            for (KeyboardListener s : subscribers) {
+                s.onKeyPress(vkCode);
             }
         };
         WinToolsExtra.initNativeKeyListener(nativeCallback);
