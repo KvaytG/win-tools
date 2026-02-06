@@ -18,6 +18,9 @@ import ru.kvaytg.wintools.util.JvmUtils;
  */
 public final class WinToolsExtra {
 
+    /**
+     * Private constructor to prevent instantiation.
+     */
     private WinToolsExtra() {
         throw new AssertionError("No instances allowed");
     }
@@ -34,6 +37,28 @@ public final class WinToolsExtra {
 
         void registerKeyListener(KeyListenerInternalCallback callback);
 
+        void sendKeyDown(int vkCode);
+
+        void sendKeyUp(int vkCode);
+
+    }
+
+    /**
+     * Sends a native key down (press) event to the operating system.
+     *
+     * @param vkCode the virtual-key code to press (e.g. VK_A)
+     */
+    public static void nativeKeyDown(int vkCode) {
+        WinToolsLibrary.INSTANCE.sendKeyDown(vkCode);
+    }
+
+    /**
+     * Sends a native key up (release) event to the operating system.
+     *
+     * @param vkCode the virtual-key code to release (e.g. VK_A)
+     */
+    public static void nativeKeyUp(int vkCode) {
+        WinToolsLibrary.INSTANCE.sendKeyUp(vkCode);
     }
 
     /**

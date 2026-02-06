@@ -33,6 +33,46 @@ public final class WinKeyboard {
     }
 
     /**
+     * Sends a native key down (press) event.
+     *
+     * @param vkCode the virtual-key code to press
+     */
+    public static void pressKeyDown(int vkCode) {
+        if (!JvmUtils.isWindows()) {
+            throw new RuntimeException("pressKeyDown() only works on Windows");
+        }
+        WinToolsExtra.nativeKeyDown(vkCode);
+    }
+
+    /**
+     * Sends a native key up (release) event.
+     *
+     * @param vkCode the virtual-key code to release
+     */
+    public static void pressKeyUp(int vkCode) {
+        if (!JvmUtils.isWindows()) {
+            throw new RuntimeException("pressKeyUp() only works on Windows");
+        }
+        WinToolsExtra.nativeKeyUp(vkCode);
+    }
+
+    /**
+     * Sends a full key press (down + up).
+     *
+     * @param vkCode the virtual-key code to press
+     */
+    public static void pressKey(int vkCode) {
+        pressKeyDown(vkCode);
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("pressKey interrupted: " + e.getMessage());
+        }
+        pressKeyUp(vkCode);
+    }
+
+    /**
      * Adds a listener for global keyboard events.
      * The native hook is automatically initialized when the first listener is added.
      *
