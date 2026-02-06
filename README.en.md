@@ -8,13 +8,13 @@ A collection of Java utilities for interacting with Windows via native DLLs.
 ## ✨ Features
 - **Native interactions**: Direct access to Windows API via Java wrappers
 - **Input control**: Precise mouse manipulation (clicks, cursor positioning)
+- **Keyboard control**: Press individual keys and intercept global keyboard events
 - **System notifications**: Windows toast notifications delivery
 - **Console operations**: Color-formatted output
 - **System operations**: Shutdown/reboot + low-level functions
 - **Message boxes**: Alert, confirm, and prompt dialogs via native Windows dialogs
 - **Static API**: Utility classes with instantiation prevention
 - **Native integration**: Optimized pre-built DLL components
-- **Global Key Listening**: Intercept keyboard events system-wide
 
 ## 📚 Usage
 ### WinMessageBox Class
@@ -116,6 +116,14 @@ WinKeyboard.addListener(vkCode -> {
 
 // Remove the listener when no longer needed
 // WinKeyboard.removeListener(myListener);
+
+// Virtual key code for 'A' = 0x41
+// Press 'A'
+WinKeyboard.pressKeyDown(0x41);
+// Release 'A'
+WinKeyboard.pressKeyUp(0x41);
+// Press and release 'A'
+WinKeyboard.pressKey(0x41);
 ```
 
 ## 📥 Installation (Maven)
