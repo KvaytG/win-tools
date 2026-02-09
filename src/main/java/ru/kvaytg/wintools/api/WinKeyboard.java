@@ -5,6 +5,8 @@ import ru.kvaytg.wintools.extra.WinToolsExtra;
 import ru.kvaytg.wintools.util.JvmUtils;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Public API for global keyboard event interception on Windows.
@@ -25,6 +27,16 @@ public final class WinKeyboard {
     private static final List<KeyboardListener> subscribers = new CopyOnWriteArrayList<>();
     private static boolean isStarted = false;
 
+    private static final ExecutorService eventExecutor = Executors.newSingleThreadExecutor(r -> {
+        Thread t = new Thread(r);
+        t.setDaemon(true);
+        return t;
+    });
+
+    static {
+        Runtime.getRuntime().addShutdownHook(new Thread(WinKeyboard::stopNativeHook));
+    }
+
     /**
      * Private constructor to prevent instantiation.
      */
@@ -38,9 +50,7 @@ public final class WinKeyboard {
      * @param vkCode the virtual-key code to press
      */
     public static void pressKeyDown(int vkCode) {
-        if (!JvmUtils.isWindows()) {
-            throw new RuntimeException("pressKeyDown() only works on Windows");
-        }
+        checkWindows();
         WinToolsExtra.nativeKeyDown(vkCode);
     }
 
@@ -50,9 +60,7 @@ public final class WinKeyboard {
      * @param vkCode the virtual-key code to release
      */
     public static void pressKeyUp(int vkCode) {
-        if (!JvmUtils.isWindows()) {
-            throw new RuntimeException("pressKeyUp() only works on Windows");
-        }
+        checkWindows();
         WinToolsExtra.nativeKeyUp(vkCode);
     }
 
@@ -61,13 +69,14 @@ public final class WinKeyboard {
      *
      * @param vkCode the virtual-key code to press
      */
+    @SuppressWarnings("unused")
     public static void pressKey(int vkCode) {
         pressKeyDown(vkCode);
         try {
-            Thread.sleep(200);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("pressKey interrupted: " + e.getMessage());
+            System.err.println("pressKey() interrupted: " + e.getMessage());
         }
         pressKeyUp(vkCode);
     }
@@ -80,7 +89,7 @@ public final class WinKeyboard {
      * @throws RuntimeException if the OS is not Windows.
      * @throws UnsatisfiedLinkError if the native library cannot be loaded.
      */
-    public static void addListener(KeyboardListener listener) {
+    public static synchronized void addListener(KeyboardListener listener) {
         if (!isStarted) {
             startNativeHook();
         }
@@ -92,24 +101,46 @@ public final class WinKeyboard {
      *
      * @param listener The listener to be removed.
      */
-    public static void removeListener(KeyboardListener listener) {
+    public static synchronized void removeListener(KeyboardListener listener) {
         subscribers.remove(listener);
+        if (subscribers.isEmpty() && isStarted) {
+            stopNativeHook();
+        }
     }
 
     /**
      * Initializes the bridge between Windows system events and the JVM.
      */
     private static void startNativeHook() {
+        checkWindows();
+        nativeCallback = (vkCode) -> eventExecutor.submit(() -> {
+            for (KeyboardListener s : subscribers) {
+                try {
+                    s.onKeyPress(vkCode);
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+        });
+        WinToolsExtra.initNativeKeyListener(nativeCallback);
+        isStarted = true;
+    }
+
+    /**
+     * Safely stops the native hook and releases resources.
+     */
+    private static synchronized void stopNativeHook() {
+        if (isStarted) {
+            WinToolsExtra.stopNativeKeyListener();
+            nativeCallback = null;
+            isStarted = false;
+        }
+    }
+
+    private static void checkWindows() {
         if (!JvmUtils.isWindows()) {
             throw new RuntimeException("WinKeyboard only works on Windows");
         }
-        nativeCallback = (vkCode) -> {
-            for (KeyboardListener s : subscribers) {
-                s.onKeyPress(vkCode);
-            }
-        };
-        WinToolsExtra.initNativeKeyListener(nativeCallback);
-        isStarted = true;
     }
 
 }

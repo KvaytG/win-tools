@@ -19,6 +19,13 @@ import ru.kvaytg.wintools.util.JvmUtils;
 public final class WinToolsExtra {
 
     /**
+     * Holds a strong reference to the callback to prevent it from being garbage collected.
+     * <p>Since JNA passes a function pointer to native code, the JVM doesn't know
+     * the object is still in use unless we keep a reference here.</p>
+     */
+    public static KeyListenerInternalCallback holdCallback;
+
+    /**
      * Private constructor to prevent instantiation.
      */
     private WinToolsExtra() {
@@ -36,6 +43,8 @@ public final class WinToolsExtra {
         );
 
         void registerKeyListener(KeyListenerInternalCallback callback);
+
+        void unregisterKeyListener();
 
         void sendKeyDown(int vkCode);
 
@@ -79,7 +88,17 @@ public final class WinToolsExtra {
      * @param callback The callback to be triggered by native code.
      */
     public static void initNativeKeyListener(KeyListenerInternalCallback callback) {
+        holdCallback = callback;
         WinToolsLibrary.INSTANCE.registerKeyListener(callback);
+    }
+
+    /**
+     * Stops the native keyboard hook and releases the internal callback reference.
+     * After calling this, no further events will be received.
+     */
+    public static void stopNativeKeyListener() {
+        WinToolsLibrary.INSTANCE.unregisterKeyListener();
+        holdCallback = null;
     }
 
     /**

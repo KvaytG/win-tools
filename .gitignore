@@ -5,7 +5,7 @@
 # IntelliJ IDEA
 .idea/
 out/
-src/main/test/
+src/test/
 target/
 *.iws
 *.iml
